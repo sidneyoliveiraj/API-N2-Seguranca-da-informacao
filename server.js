@@ -1,26 +1,36 @@
 const express        = require('express');
+const path           = require('path');
 const bodyParser     = require('body-parser');
 const methodOverride = require('method-override');
-const path           = require('path');
+const helmet         = require('helmet');
+const cookieParser   = require('cookie-parser');
+const csurf          = require('csurf');
+
 const userRoutes     = require('./routes/user_routes');
 
 const app = express();
 
-// Primeiro parse do form para req.body
+// Segurança de headers
+app.use(helmet());
+
+// Parser de cookies e CSRF token em cookie
+app.use(cookieParser());
+app.use(csurf({ cookie: true }));
+app.use((err, req, res, next) => {
+  if (err.code === 'EBADCSRFTOKEN') {
+    return res.status(403).json({ error: 'CSRF token inválido' });
+  }
+  next(err);
+});
+
+// Form data / JSON
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-//  faz override do método lendo req.body._method
+// (Opcional) method-override, se ainda quiser demonstrar CSRF com DELETE via form
 app.use(methodOverride('_method'));
-app.use(methodOverride((req) => {
-  if (req.body && typeof req.body === 'object' && '_method' in req.body) {
-    const method = req.body._method;
-    delete req.body._method;
-    return method;
-  }
-}));
 
-// Servir estáticos csrf-attack.html
+// Servir demos estáticos (como csrf-attack.html)
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Rotas da API
