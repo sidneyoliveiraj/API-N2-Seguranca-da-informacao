@@ -70,7 +70,9 @@ Middleware de autenticação em middleware/auth.js;
 ### Instalar Novas Dependências
 
 npm install bcrypt jsonwebtoken helmet cookie-parser csurf
+
 # ou
+
 yarn add bcrypt jsonwebtoken helmet cookie-parser csurf
 
 
