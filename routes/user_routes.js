@@ -3,16 +3,19 @@ const express = require('express');
 const router  = express.Router();
 const ctrl    = require('../controllers/user_controller');
 
-// GET   /Lista todos os usuários
+// GET    
 router.get('/', ctrl.list);
 
-// POST  /Cria um novo usuário
+// POST  
 router.post('/', ctrl.create);
 
-// PUT   /Atualiza um usuário existente
+// POST    vulneravel para NoSQL Injection
+router.post('/login', ctrl.login);
+
+// PUT    
 router.put('/:id', ctrl.update);
 
-// DELETE /Remove um usuário
+// DELETE
 router.delete('/:id', ctrl.remove);
 
 module.exports = router;
