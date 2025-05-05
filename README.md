@@ -1,53 +1,77 @@
 **Disciplina:** Segurança da Informação (5ª fase)  
 **Professor:** Claudinei Dias  
 **Alunos:**  
+- Eder Zerek Duarte  
+- Leonardo Henrique Fernandes Nascimento  
+- José Lucas Andrade Fonseca  
+- Sidney Cardoso de Oliveira Junior  
+
 **Atividade N2:** Vulnerabilidades em Aplicações Web (Pentesting parte 1)  
 
 ---
 
-## 2. Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - **Node.js** (v16+)  
-- **Express** (rota e servidor HTTP)  
-- **MongoDB Atlas** (banco de dados em nuvem) via **Mongoose**  
-- **Postman** (para testar as rotas e ataques)  
+- **Express** (framework HTTP)  
+- **MongoDB Atlas** (banco de dados) via **Mongoose**  
+- **Postman** (testes de API)  
+- **bcrypt**, **jsonwebtoken**, **helmet**, **cookie-parser**, **csurf** (v2.0)  
 
 ---
 
 # API Pentesting — Versão 1.0
 
-## Instalação das Dependências
+### 1. Instalação das Dependências
 
 1. Abra um terminal ou prompt de comando.  
 2. Navegue até a pasta raiz do projeto (onde está o `package.json`).  
-3. Execute **um** dos comandos abaixo:
+3. Execute **apenas um** dos comandos:
 
+   ```bash
+   npm install
+   # ou
+   yarn install
 
-npm install
+Isso baixará todas as dependências listadas em package.json.
 
-# ou, se preferir usar yarn:
+ ### Como Rodar Localmente
 
-yarn install
+ Garanta que a string de conexão com o MongoDB Atlas está em config/db.js
 
+ No terminal, na pasta raiz, execute:
 
-Isso irá baixar todas as dependências listadas em package.json
-
-
-## Como Rodar a Aplicação Localmente
-
-Certifique-se de que a string de conexão com o MongoDB Atlas está configurada em config/db.js.
-
-No mesmo terminal, ainda na pasta raiz do projeto, execute um dos comandos:
-
-npm start
+ npm start
 # ou
 node server.js
 
-Se tudo estiver correto, você verá no console:
+Se tudo ocorreu bem, verá:
 
 ✅ Conectado ao MongoDB Atlas
 🚀 API rodando em http://localhost:3000
 
 
-A API agora está disponível em http://localhost:3000.
-Para interromper o servidor, pressione Ctrl + C no terminal.
+Acesse http://localhost:3000 para usar a API.
+
+Para encerrar, pressione Ctrl + C.
+
+---
+
+# API Pentesting — Versão 2.0
+
+Nesta versão adicionamos:
+
+Registro e login de usuários com bcrypt e JWT;
+Proteção das rotas GET, PUT e DELETE via token JWT (Authorization: Bearer <token>);
+Helmet para segurança de cabeçalhos HTTP;
+CSRF protection via csurf (formulários);
+Middleware de autenticação em middleware/auth.js;
+
+### Instalar Novas Dependências
+
+npm install bcrypt jsonwebtoken helmet cookie-parser csurf
+# ou
+yarn add bcrypt jsonwebtoken helmet cookie-parser csurf
+
+
+Sua API está agora com autenticação segura, proteção contra CSRF, cabeçalhos HTTP reforçados e criptografia de senhas.
