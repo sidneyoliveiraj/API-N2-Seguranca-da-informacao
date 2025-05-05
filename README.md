@@ -77,3 +77,14 @@ yarn add bcrypt jsonwebtoken helmet cookie-parser csurf
 
 
 Sua API está agora com autenticação segura, proteção contra CSRF, cabeçalhos HTTP reforçados e criptografia de senhas.
+
+
+
+## Como rodar os testes de API no Postman
+
+1. Importe a Collection:
+   - Vá em **Collections → Import → File** e selecione `postman/Segurança-N2-v2.0-JWT-Collection.json`.
+2. Importe o Environment:
+   - Vá em **Environments → Import → File** e selecione `postman/Segurança-N2-v2.0-JWT-Environment.json`.
+3. Selecione aquele Environment no canto superior direito do Postman.
+4. Clique em **Runner**, escolha a Collection “Segurança – N2 v2.0 – JWT” e execute.

@@ -1,0 +1,51 @@
+{
+	"info": {
+		"_postman_id": "9b528d08-1c1c-4e76-bad5-ac3315d9cbc5",
+		"name": "Segurança-N2 v2.0 – JWT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44029306",
+		"_collection_link": "https://segurana-da-informao.postman.co/workspace/v2.0~88795165-bc9e-48fe-a5c7-6023cc62deb1/collection/44029306-9b528d08-1c1c-4e76-bad5-ac3315d9cbc5?action=share&source=collection_link&creator=44029306"
+	},
+	"item": [
+		{
+			"name": "01_Get CSRF Token",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "02_Register User With CSRF",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "03_Login With CSRF",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "04_Get Users (Protected)",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "05_Delete User (Protected)",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
